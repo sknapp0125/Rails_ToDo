@@ -1,27 +1,45 @@
+<body>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Todo Items</h1>
+<header>
+<h1>To Do List</h1>
+<h2>Welcome!</h2>
+</header>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @todo_items.each do |todo_item| %>
-      <tr>
-        <td><%= todo_item.description %></td>
-        <td><%= link_to 'Show', todo_item %></td>
-        <td><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
-        <td><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<img class="check" src="http://mspp.georgetown.edu/sites/mspp/files/files/upload/checkbox.gif">
+
+
+<article>
+<p>Add new items by clicking on the "New Todo item" link below!
+</p>
+<p>
+See the items that you have created by clicking "Show." You can also Edit or Destroy them. Have fun!
+</p>
+</article>
+
+<table class="table table-striped">
+ <thead>
+   <tr>
+     <th class="text-center">Description</th>
+     <th colspan="3"></th>
+   </tr>
+ </thead>
+
+ <tbody>
+   <% @todo_items.each do |todo_item| %>
+     <tr>
+       <td class="text-center"><%= todo_item.description %></td>
+       <td class="text-center"><%= link_to 'Show', todo_item %></td>
+       <td class="text-center"><%= link_to 'Edit', edit_todo_item_path(todo_item) %></td>
+       <td class="text-center"><%= link_to 'Destroy', todo_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+   <% end %>
+ </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Todo item', new_todo_item_path %>
+
+<%= link_to 'New Todo item', new_todo_item_path, class: 'btn-lg btn-block btn-info col-md-offset-5' %>
+</body>
